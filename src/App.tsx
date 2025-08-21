@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { ProductPage } from "@/components/ProductPage";
+import { products } from "@/data/products";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +18,14 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          {/* Dynamic product routes */}
+          {products.map((product) => (
+            <Route
+              key={product.id}
+              path={`/${product.id}`}
+              element={<ProductPage product={product} />}
+            />
+          ))}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
