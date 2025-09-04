@@ -70,6 +70,7 @@ All colors MUST be HSL.
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --radius: 0.75rem;
+  }
 
   .dark {
     /* Dark mode backgrounds */
